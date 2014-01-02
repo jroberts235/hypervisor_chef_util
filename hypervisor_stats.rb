@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # This script queries the Chef server for nodes in the role[hypervisor] 
 # using the Chef API and a valid user name and .pem file.
 # It gathers information on any nodes, and displays stats
@@ -11,7 +12,7 @@
 #
 # https://github.com/albertsj1/ohai-plugins/blob/master/kvm_extensions.rb
 
-#! env ruby
+
 require 'chef' 
 require 'chef/rest' 
 require 'chef/search/query' 
@@ -198,7 +199,7 @@ begin
 
 
         guests.keys.each do |guest| # Get specific stats for each guest on the node
-            name           = guest
+            #name           = guest
             state          = hypervisors[node]['attrs']['guests'][guest]['state']
             cores          = (hypervisors[node]['attrs']['guests'][guest]['CPU(s)']).to_i
             used_mem       = hypervisors[node]['attrs']['guests'][guest]['Used memory']
